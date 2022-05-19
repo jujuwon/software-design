@@ -2077,7 +2077,7 @@
 											"top": 734,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+login(string id, string pw): boolean",
+											"text": "+login(string userName, string pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7630,8 +7630,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfoOfm0HbXHk="
 									},
-									"name": "SharedCart sCart",
-									"type": ""
+									"name": "SharedCart sCart"
 								},
 								{
 									"_type": "UMLParameter",
@@ -7641,15 +7640,6 @@
 									},
 									"type": "boolean",
 									"direction": "return"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGA0DyStmsYsx4=",
-									"_parent": {
-										"$ref": "AAAAAAGAfoOfm0HbXHk="
-									},
-									"name": "int pw",
-									"type": ""
 								}
 							]
 						},
@@ -7667,7 +7657,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfohCKFBGjaI="
 									},
-									"type": "void",
+									"type": "boolean",
 									"direction": "return"
 								},
 								{
@@ -7676,8 +7666,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfohCKFBGjaI="
 									},
-									"name": "SharedCart sCart",
-									"type": ""
+									"name": "SharedCart sCart"
 								}
 							]
 						},
@@ -7695,8 +7684,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfomywFHn4gE="
 									},
-									"name": "int cID",
-									"type": ""
+									"name": "string URL"
 								},
 								{
 									"_type": "UMLParameter",
@@ -7706,15 +7694,6 @@
 									},
 									"type": "boolean",
 									"direction": "return"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGA0D174m/fhiA=",
-									"_parent": {
-										"$ref": "AAAAAAGAfomywFHn4gE="
-									},
-									"name": "int pw",
-									"type": ""
 								}
 							]
 						},
@@ -7853,7 +7832,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAyy9t/AbvF88="
 									},
-									"name": "string userName"
+									"name": "string userName",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7861,7 +7841,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAyy9t/AbvF88="
 									},
-									"name": "string pw"
+									"name": "string pw",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10995,7 +10976,7 @@
 											"top": 635,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+login(string id, string pw): boolean",
+											"text": "+login(string userName, string pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17583,7 +17564,7 @@
 											"top": 609,
 											"width": 434.63671875,
 											"height": 13,
-											"text": "+deleteSharedCart(SharedCart sCart, int pw): boolean",
+											"text": "+deleteSharedCart(SharedCart sCart): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17601,7 +17582,7 @@
 											"width": 434.63671875,
 											"height": 13,
 											"autoResize": true,
-											"text": "+inviteParticipant(SharedCart sCart): void",
+											"text": "+inviteParticipant(SharedCart sCart): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17618,7 +17599,7 @@
 											"top": 639,
 											"width": 434.63671875,
 											"height": 13,
-											"text": "+joinCart(int cID, int pw): boolean",
+											"text": "+joinCart(string URL): boolean",
 											"horizontalAlignment": 0
 										},
 										{
