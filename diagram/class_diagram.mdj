@@ -1941,7 +1941,7 @@
 											"top": 614,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+createSharedCart(string, string, int): boolean",
+											"text": "+createSharedCart(string cName, string addr, string dAddr, int pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1958,7 +1958,7 @@
 											"top": 629,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+deleteSharedCart(SharedCart): boolean",
+											"text": "+deleteSharedCart(SharedCart sCart, int pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1975,7 +1975,7 @@
 											"top": 644,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+inviteParticipant(SharedCart): void",
+											"text": "+inviteParticipant(SharedCart sCart): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1992,7 +1992,7 @@
 											"top": 659,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+joinCart(int cartID): boolean",
+											"text": "+joinCart(int cID, int pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2009,7 +2009,7 @@
 											"top": 674,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+addProduct(SharedCart, Product): boolean",
+											"text": "+addProduct(SharedCart sCart, Product prod): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2026,7 +2026,7 @@
 											"top": 689,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+removeProduct(SharedCart, Product): boolean",
+											"text": "+removeProduct(SharedCart sCart, Product prod): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2060,7 +2060,7 @@
 											"top": 719,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+pay(SharedCart): boolean",
+											"text": "+pay(SharedCart sCart): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2082,6 +2082,57 @@
 										},
 										{
 											"_type": "UMLOperationView",
+											"_id": "AAAAAAGA2pSuXVfdqPo=",
+											"_parent": {
+												"$ref": "AAAAAAGAfkimXmtbDZ0="
+											},
+											"model": {
+												"$ref": "AAAAAAGA0EpbmtTHLf4="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 749,
+											"width": 320.8994140625,
+											"height": 13,
+											"text": "+getJoinedCarts(): List<SharedCart>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGA2pSuXVfgVbE=",
+											"_parent": {
+												"$ref": "AAAAAAGAfkimXmtbDZ0="
+											},
+											"model": {
+												"$ref": "AAAAAAGA0EqbzNazyIw="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 764,
+											"width": 320.8994140625,
+											"height": 13,
+											"text": "+getOwnCarts(): List<SharedCart>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGA2pSuXVfjS/Y=",
+											"_parent": {
+												"$ref": "AAAAAAGAfkimXmtbDZ0="
+											},
+											"model": {
+												"$ref": "AAAAAAGA0ErNBtkybUI="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 779,
+											"width": 320.8994140625,
+											"height": 13,
+											"text": "+getProducts(): List<Product>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
 											"_id": "AAAAAAGAqQgSFy/hOds=",
 											"_parent": {
 												"$ref": "AAAAAAGAfkimXmtbDZ0="
@@ -2091,7 +2142,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 149,
-											"top": 749,
+											"top": 794,
 											"width": 320.8994140625,
 											"height": 13,
 											"text": "+main(): void",
@@ -2101,8 +2152,8 @@
 									"font": "Arial;13;0",
 									"left": 144,
 									"top": 609,
-									"width": 330.8994140625,
-									"height": 158
+									"width": 422.89215087890625,
+									"height": 203
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -5874,7 +5925,7 @@
 											"top": 590,
 											"width": 283.23876953125,
 											"height": 13,
-											"text": "+cartName: String",
+											"text": "+cartName: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5908,7 +5959,7 @@
 											"top": 620,
 											"width": 283.23876953125,
 											"height": 13,
-											"text": "+address: String",
+											"text": "+address: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5925,7 +5976,7 @@
 											"top": 635,
 											"width": 283.23876953125,
 											"height": 13,
-											"text": "+detailAddress: String",
+											"text": "+detailAddress: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7533,7 +7584,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfmoB68wAvNA="
 									},
-									"name": "string cName"
+									"name": "string cName",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7541,7 +7593,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfmoB68wAvNA="
 									},
-									"name": "string addr"
+									"name": "string addr",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7549,7 +7602,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfmoB68wAvNA="
 									},
-									"name": "string dAddr"
+									"name": "string dAddr",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7557,7 +7611,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfmoB68wAvNA="
 									},
-									"name": "int pw"
+									"name": "int pw",
+									"type": ""
 								}
 							]
 						},
@@ -7575,7 +7630,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfoOfm0HbXHk="
 									},
-									"name": "SharedCart sCart"
+									"name": "SharedCart sCart",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7592,7 +7648,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfoOfm0HbXHk="
 									},
-									"name": "int pw"
+									"name": "int pw",
+									"type": ""
 								}
 							]
 						},
@@ -7619,7 +7676,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfohCKFBGjaI="
 									},
-									"name": "SharedCart sCart"
+									"name": "SharedCart sCart",
+									"type": ""
 								}
 							]
 						},
@@ -7637,7 +7695,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfomywFHn4gE="
 									},
-									"name": "int cID"
+									"name": "int cID",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7673,7 +7732,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAforLnFbq+Qo="
 									},
-									"name": "SharedCart sCart"
+									"name": "SharedCart sCart",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7690,7 +7750,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAforLnFbq+Qo="
 									},
-									"name": "Product prod"
+									"name": "Product prod",
+									"type": ""
 								}
 							]
 						},
@@ -7708,7 +7769,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfox2AVhxCpI="
 									},
-									"name": "SharedCart sCart"
+									"name": "SharedCart sCart",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7716,7 +7778,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfox2AVhxCpI="
 									},
-									"name": "Product prod"
+									"name": "Product prod",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7762,7 +7825,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAsLVpG9Wvv+M="
 									},
-									"name": "SharedCart sCart"
+									"name": "SharedCart sCart",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7789,7 +7853,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGAyy9t/AbvF88="
 									},
-									"name": "string id"
+									"name": "string userName"
 								},
 								{
 									"_type": "UMLParameter",
@@ -10794,7 +10858,7 @@
 											"top": 530,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+createSharedCart(string, string, int): boolean",
+											"text": "+createSharedCart(string cName, string addr, string dAddr, int pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10811,7 +10875,7 @@
 											"top": 545,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+deleteSharedCart(SharedCart): boolean",
+											"text": "+deleteSharedCart(SharedCart sCart, int pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10828,7 +10892,7 @@
 											"top": 560,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+inviteParticipant(SharedCart): void",
+											"text": "+inviteParticipant(SharedCart sCart): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10845,7 +10909,7 @@
 											"top": 575,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+joinCart(int cartID): boolean",
+											"text": "+joinCart(int cID, int pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10862,7 +10926,7 @@
 											"top": 590,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+addProduct(SharedCart, Product): boolean",
+											"text": "+addProduct(SharedCart sCart, Product prod): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10879,7 +10943,7 @@
 											"top": 605,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+removeProduct(SharedCart, Product): boolean",
+											"text": "+removeProduct(SharedCart sCart, Product prod): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10914,7 +10978,7 @@
 											"top": 620,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+pay(SharedCart): boolean",
+											"text": "+pay(SharedCart sCart): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10936,6 +11000,57 @@
 										},
 										{
 											"_type": "UMLOperationView",
+											"_id": "AAAAAAGA2pSuZFgEXJE=",
+											"_parent": {
+												"$ref": "AAAAAAGAfp0488u1Ehs="
+											},
+											"model": {
+												"$ref": "AAAAAAGA0EpbmtTHLf4="
+											},
+											"font": "Arial;13;0",
+											"left": 173,
+											"top": 650,
+											"width": 320.8994140625,
+											"height": 13,
+											"text": "+getJoinedCarts(): List<SharedCart>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGA2pSuZFgHwtI=",
+											"_parent": {
+												"$ref": "AAAAAAGAfp0488u1Ehs="
+											},
+											"model": {
+												"$ref": "AAAAAAGA0EqbzNazyIw="
+											},
+											"font": "Arial;13;0",
+											"left": 173,
+											"top": 665,
+											"width": 320.8994140625,
+											"height": 13,
+											"text": "+getOwnCarts(): List<SharedCart>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGA2pSuZFgKLQg=",
+											"_parent": {
+												"$ref": "AAAAAAGAfp0488u1Ehs="
+											},
+											"model": {
+												"$ref": "AAAAAAGA0ErNBtkybUI="
+											},
+											"font": "Arial;13;0",
+											"left": 173,
+											"top": 680,
+											"width": 320.8994140625,
+											"height": 13,
+											"text": "+getProducts(): List<Product>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
 											"_id": "AAAAAAGAqQgSMTAOrzc=",
 											"_parent": {
 												"$ref": "AAAAAAGAfp0488u1Ehs="
@@ -10945,7 +11060,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 173,
-											"top": 650,
+											"top": 695,
 											"width": 320.8994140625,
 											"height": 13,
 											"text": "+main(): void",
@@ -10955,8 +11070,8 @@
 									"font": "Arial;13;0",
 									"left": 168,
 									"top": 525,
-									"width": 330.8994140625,
-									"height": 143
+									"width": 422.89215087890625,
+									"height": 188
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -13937,7 +14052,7 @@
 											"top": 62,
 											"width": 286.50146484375,
 											"height": 13,
-											"text": "+cartName: String",
+											"text": "+cartName: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -13971,7 +14086,7 @@
 											"top": 92,
 											"width": 286.50146484375,
 											"height": 13,
-											"text": "+address: String",
+											"text": "+address: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -13988,7 +14103,7 @@
 											"top": 107,
 											"width": 286.50146484375,
 											"height": 13,
-											"text": "+detailAddress: String",
+											"text": "+detailAddress: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17589,7 +17704,7 @@
 											"top": 699,
 											"width": 434.63671875,
 											"height": 13,
-											"text": "+login(string id, string pw): boolean",
+											"text": "+login(string userName, string pw): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -21846,7 +21961,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAsQstECnc/NY="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -21914,7 +22030,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAsUS/0tFzqcs="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
