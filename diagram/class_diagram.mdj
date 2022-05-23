@@ -1958,7 +1958,7 @@
 											"top": 629,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+deleteSharedCart(SharedCart sCart, int pw): boolean",
+											"text": "+deleteSharedCart(SharedCart sCart): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1975,7 +1975,7 @@
 											"top": 644,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+inviteParticipant(SharedCart sCart): void",
+											"text": "+inviteParticipant(SharedCart sCart): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1992,7 +1992,7 @@
 											"top": 659,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+joinCart(int cID, int pw): boolean",
+											"text": "+joinCart(string URL): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2128,7 +2128,7 @@
 											"top": 779,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+getProducts(): List<Product>",
+											"text": "+getProducts(string keyword): List<Product>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2152,7 +2152,7 @@
 									"font": "Arial;13;0",
 									"left": 144,
 									"top": 609,
-									"width": 422.89215087890625,
+									"width": 458.4619140625,
 									"height": 203
 								},
 								{
@@ -7630,7 +7630,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfoOfm0HbXHk="
 									},
-									"name": "SharedCart sCart"
+									"name": "SharedCart sCart",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7666,7 +7667,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfohCKFBGjaI="
 									},
-									"name": "SharedCart sCart"
+									"name": "SharedCart sCart",
+									"type": ""
 								}
 							]
 						},
@@ -7684,7 +7686,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGAfomywFHn4gE="
 									},
-									"name": "string URL"
+									"name": "string URL",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -7909,6 +7912,15 @@
 									},
 									"type": "List<Product>",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGA5kkk86TKtP8=",
+									"_parent": {
+										"$ref": "AAAAAAGA0ErNBtkybUI="
+									},
+									"name": "string keyword",
+									"type": ""
 								}
 							]
 						},
@@ -10856,7 +10868,7 @@
 											"top": 545,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+deleteSharedCart(SharedCart sCart, int pw): boolean",
+											"text": "+deleteSharedCart(SharedCart sCart): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10873,7 +10885,7 @@
 											"top": 560,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+inviteParticipant(SharedCart sCart): void",
+											"text": "+inviteParticipant(SharedCart sCart): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10890,7 +10902,7 @@
 											"top": 575,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+joinCart(int cID, int pw): boolean",
+											"text": "+joinCart(string URL): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -11027,7 +11039,7 @@
 											"top": 680,
 											"width": 320.8994140625,
 											"height": 13,
-											"text": "+getProducts(): List<Product>",
+											"text": "+getProducts(string keyword): List<Product>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -11051,7 +11063,7 @@
 									"font": "Arial;13;0",
 									"left": 168,
 									"top": 525,
-									"width": 422.89215087890625,
+									"width": 458.4619140625,
 									"height": 188
 								},
 								{
@@ -17736,7 +17748,7 @@
 											"top": 744,
 											"width": 434.63671875,
 											"height": 13,
-											"text": "+getProducts(): List<Product>",
+											"text": "+getProducts(string keyword): List<Product>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -18537,7 +18549,7 @@
 											"font": "Arial;13;0",
 											"left": 261,
 											"top": 984,
-											"width": 256.17236328125,
+											"width": 265.0400390625,
 											"height": 13,
 											"text": "+addParticipantID(int participantID): boolean",
 											"horizontalAlignment": 0
@@ -20509,7 +20521,7 @@
 											"top": 908,
 											"width": 237.00244140625,
 											"height": 13,
-											"text": "-DBConnect(): boolean",
+											"text": "-DBconnect(): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -20526,7 +20538,7 @@
 											"top": 923,
 											"width": 237.00244140625,
 											"height": 13,
-											"text": "-DBClose(): void",
+											"text": "-DBclose(): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -21962,7 +21974,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGAsQnSkxos/u0="
 							},
-							"name": "DBConnect",
+							"name": "DBconnect",
 							"visibility": "private",
 							"parameters": [
 								{
@@ -21982,7 +21994,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGAsQnSkxos/u0="
 							},
-							"name": "DBClose",
+							"name": "DBclose",
 							"visibility": "private",
 							"parameters": [
 								{
