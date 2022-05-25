@@ -1,0 +1,24 @@
+애매한 점 opt로 나타낼건지 alt로 나타낼건지
+
+질문사항 비동기
+
+수정해야될 점
+전체 시퀀스 : 메시지 노트 추가
+
+create : 
+
+delete : 
+
+invite : 연락처 받아오는거 추가, 
+
+join : 자꾸 글자 진하게 됨, 
+
+add : 
+
+remove : 
+
+login : 
+
+pay : 
+
+dbconnect : 
