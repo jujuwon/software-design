@@ -2552,7 +2552,7 @@
 											"top": 1117,
 											"width": 578.8291015625,
 											"height": 13,
-											"text": "(create_sharedCart_query): data"
+											"text": "(insert_sharedCart_query): result"
 										},
 										{
 											"_type": "LabelView",
@@ -3000,8 +3000,8 @@
 								"$ref": "AAAAAAGA0UKDInVw+zA="
 							},
 							"name": "InteractionUse1",
-							"arguments": "create_sharedCart_query",
-							"returnValue": "data"
+							"arguments": "insert_sharedCart_query",
+							"returnValue": "result"
 						},
 						{
 							"_type": "UMLCombinedFragment",
@@ -4874,7 +4874,7 @@
 											"top": 845,
 											"width": 506.8291015625,
 											"height": 13,
-											"text": "(delete_sharedCart_query): data"
+											"text": "(delete_sharedCart_query): result"
 										},
 										{
 											"_type": "LabelView",
@@ -4923,7 +4923,7 @@
 											"top": 301,
 											"width": 505.8291015625,
 											"height": 13,
-											"text": "(select_sharedCart_query): data"
+											"text": "(select_sharedCart_query): ownCartList"
 										},
 										{
 											"_type": "LabelView",
@@ -5411,8 +5411,8 @@
 									"left": 336,
 									"top": 688,
 									"width": 161,
-									"height": 51,
-									"text": "message : It's different from the password in the shared cart."
+									"height": 53,
+									"text": "message : \nYou entered your password incorrectly"
 								}
 							]
 						}
@@ -5625,7 +5625,7 @@
 							},
 							"name": "InteractionUse1",
 							"arguments": "select_sharedCart_query",
-							"returnValue": "data"
+							"returnValue": "ownCartList"
 						},
 						{
 							"_type": "UMLInteractionUse",
@@ -5635,7 +5635,7 @@
 							},
 							"name": "InteractionUse2",
 							"arguments": "delete_sharedCart_query",
-							"returnValue": "data"
+							"returnValue": "result"
 						},
 						{
 							"_type": "UMLCombinedFragment",
@@ -5814,7 +5814,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 285.57696533203125,
+											"left": 285.07177734375,
 											"top": 237,
 											"width": 1,
 											"height": 13
@@ -5828,7 +5828,7 @@
 											"font": "Arial;13;1",
 											"left": 261,
 											"top": 237,
-											"width": 19.57696533203125,
+											"width": 19.07177734375,
 											"height": 13,
 											"text": "opt"
 										},
@@ -5861,7 +5861,7 @@
 															"font": "Arial;13;0",
 															"left": 276,
 															"top": 270,
-															"width": 105.13084411621094,
+															"width": 108.75439453125,
 															"height": 13,
 															"text": "[loginResult = true]"
 														}
@@ -5916,7 +5916,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 330.9199523925781,
+											"left": 331.578125,
 											"top": 629,
 											"width": 1,
 											"height": 13
@@ -5930,7 +5930,7 @@
 											"font": "Arial;13;1",
 											"left": 301,
 											"top": 629,
-											"width": 24.919952392578125,
+											"width": 25.578125,
 											"height": 13,
 											"text": "loop"
 										},
@@ -6017,7 +6017,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 360.636962890625,
+											"left": 360.72998046875,
 											"top": 741,
 											"width": 1,
 											"height": 13
@@ -6031,7 +6031,7 @@
 											"font": "Arial;13;1",
 											"left": 341,
 											"top": 741,
-											"width": 14.636962890625,
+											"width": 14.72998046875,
 											"height": 13,
 											"text": "alt"
 										},
@@ -6064,7 +6064,7 @@
 															"font": "Arial;13;0",
 															"left": 356,
 															"top": 774,
-															"width": 87.931884765625,
+															"width": 87.80078125,
 															"height": 13,
 															"text": "[inviteType = 0]"
 														}
@@ -6097,7 +6097,7 @@
 															"font": "Arial;13;0",
 															"left": 356,
 															"top": 1104,
-															"width": 80.96389770507812,
+															"width": 84.18896484375,
 															"height": 13,
 															"text": "[inviteType =1]"
 														}
@@ -6151,9 +6151,9 @@
 												"$ref": "AAAAAAGBDsO2Ai2JL/E="
 											},
 											"font": "Arial;13;0",
-											"left": 231.47998046875,
+											"left": 232.72998046875,
 											"top": 109,
-											"width": 90.5958251953125,
+											"width": 93.49169921875,
 											"height": 13,
 											"text": "InviteParticipant"
 										},
@@ -6166,7 +6166,7 @@
 											"font": "Arial;13;1",
 											"left": 213,
 											"top": 109,
-											"width": 13.47998046875,
+											"width": 14.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
@@ -7122,11 +7122,11 @@
 												"$ref": "AAAAAAGBDsO2BC28pZQ="
 											},
 											"font": "Arial;13;0",
-											"left": 489.1969757080078,
+											"left": 489.1708984375,
 											"top": 309,
-											"width": 506.8030242919922,
+											"width": 506.8291015625,
 											"height": 13,
-											"text": "(select_sharedCart_query): data"
+											"text": "(select_sharedCart_query): ownCartList"
 										},
 										{
 											"_type": "LabelView",
@@ -7137,7 +7137,7 @@
 											"font": "Arial;13;1",
 											"left": 453,
 											"top": 309,
-											"width": 16.196975708007812,
+											"width": 16.1708984375,
 											"height": 13,
 											"text": "ref"
 										}
@@ -7203,7 +7203,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 409.4329528808594,
+											"left": 411.51904296875,
 											"top": 1517,
 											"width": 1,
 											"height": 13
@@ -7217,7 +7217,7 @@
 											"font": "Arial;13;1",
 											"left": 373,
 											"top": 1517,
-											"width": 31.432952880859375,
+											"width": 33.51904296875,
 											"height": 13,
 											"text": "break"
 										},
@@ -7250,7 +7250,7 @@
 															"font": "Arial;13;0",
 															"left": 388,
 															"top": 1550,
-															"width": 75.72489929199219,
+															"width": 76.22900390625,
 															"height": 13,
 															"text": "[result = true]"
 														}
@@ -7530,9 +7530,9 @@
 												"$ref": "AAAAAAGBDsO2By43qiU="
 											},
 											"font": "Arial;13;0",
-											"left": 547,
+											"left": 544,
 											"top": 507,
-											"width": 142.31069946289062,
+											"width": 149.55078125,
 											"height": 13,
 											"autoResize": true,
 											"alpha": 1.582699524936174,
@@ -7640,7 +7640,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 409.4329528808594,
+											"left": 411.51904296875,
 											"top": 813,
 											"width": 1,
 											"height": 13
@@ -7654,7 +7654,7 @@
 											"font": "Arial;13;1",
 											"left": 373,
 											"top": 813,
-											"width": 31.432952880859375,
+											"width": 33.51904296875,
 											"height": 13,
 											"text": "break"
 										},
@@ -7687,7 +7687,7 @@
 															"font": "Arial;13;0",
 															"left": 388,
 															"top": 846,
-															"width": 87.931884765625,
+															"width": 87.80078125,
 															"height": 13,
 															"text": "[inviteType = 0]"
 														}
@@ -7744,9 +7744,9 @@
 												"$ref": "AAAAAAGBDsO2By44NQU="
 											},
 											"font": "Arial;13;0",
-											"left": 808,
+											"left": 804,
 											"top": 528,
-											"width": 110.95481872558594,
+											"width": 119.18994140625,
 											"height": 13,
 											"autoResize": true,
 											"alpha": 0.6947378663608392,
@@ -8637,9 +8637,9 @@
 												"$ref": "AAAAAAGBDsO2By5AMtM="
 											},
 											"font": "Arial;13;0",
-											"left": 788,
+											"left": 780,
 											"top": 984,
-											"width": 149.78573608398438,
+											"width": 165.4580078125,
 											"height": 13,
 											"autoResize": true,
 											"alpha": 0.7378146076320024,
@@ -8858,7 +8858,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 397.57696533203125,
+											"left": 397.07177734375,
 											"top": 1389,
 											"width": 1,
 											"height": 13
@@ -8872,7 +8872,7 @@
 											"font": "Arial;13;1",
 											"left": 373,
 											"top": 1389,
-											"width": 19.57696533203125,
+											"width": 19.07177734375,
 											"height": 13,
 											"text": "opt"
 										},
@@ -8905,7 +8905,7 @@
 															"font": "Arial;13;0",
 															"left": 388,
 															"top": 1422,
-															"width": 78.46788024902344,
+															"width": 81.2880859375,
 															"height": 13,
 															"text": "[result = false]"
 														}
@@ -9297,9 +9297,9 @@
 												"$ref": "AAAAAAGBDsO2By5FYCw="
 											},
 											"font": "Arial;13;0",
-											"left": 778,
+											"left": 771,
 											"top": 1288,
-											"width": 172.80868530273438,
+											"width": 187.87158203125,
 											"height": 13,
 											"autoResize": true,
 											"alpha": 0.655695254494504,
@@ -10028,7 +10028,7 @@
 							},
 							"name": "InteractionUse1",
 							"arguments": "select_sharedCart_query",
-							"returnValue": "data"
+							"returnValue": "ownCartList"
 						},
 						{
 							"_type": "UMLCombinedFragment",
@@ -11996,7 +11996,7 @@
 											"top": 405,
 											"width": 497.8291015625,
 											"height": 13,
-											"text": "(select_sharedCart_query): data"
+											"text": "(select_sharedCart_query): sCart"
 										},
 										{
 											"_type": "LabelView",
@@ -12045,7 +12045,7 @@
 											"top": 1109,
 											"width": 497.8291015625,
 											"height": 13,
-											"text": "(update_sharedCart_query): data"
+											"text": "(update_sharedCart_query): result"
 										},
 										{
 											"_type": "LabelView",
@@ -12766,10 +12766,10 @@
 									},
 									"font": "Arial;13;0",
 									"left": 672,
-									"top": 736,
+									"top": 728,
 									"width": 161,
 									"height": 51,
-									"text": "message : Unable to join because participants are full."
+									"text": "message : Unable to join because the shared cart is full of participants"
 								},
 								{
 									"_type": "UMLNoteView",
@@ -13251,7 +13251,7 @@
 							},
 							"name": "InteractionUse1",
 							"arguments": "select_sharedCart_query",
-							"returnValue": "data"
+							"returnValue": "sCart"
 						},
 						{
 							"_type": "UMLInteractionUse",
@@ -13261,7 +13261,7 @@
 							},
 							"name": "InteractionUse2",
 							"arguments": "update_sharedCart_query",
-							"returnValue": "data"
+							"returnValue": "result"
 						},
 						{
 							"_type": "UMLCombinedFragment",
@@ -15233,7 +15233,7 @@
 											"top": 325,
 											"width": 521.8291015625,
 											"height": 13,
-											"text": "(select_products_query): data"
+											"text": "(select_products_query): productList"
 										},
 										{
 											"_type": "LabelView",
@@ -15313,7 +15313,7 @@
 											"top": 565,
 											"width": 522.8291015625,
 											"height": 13,
-											"text": "(select_sharedCart_query): data"
+											"text": "(select_sharedCart_query): joinedCartList"
 										},
 										{
 											"_type": "LabelView",
@@ -15393,7 +15393,7 @@
 											"top": 837,
 											"width": 522.8291015625,
 											"height": 13,
-											"text": "(update_sharedCart_query): data"
+											"text": "(update_sharedCart_query): result"
 										},
 										{
 											"_type": "LabelView",
@@ -15806,7 +15806,7 @@
 							},
 							"name": "InteractionUse1",
 							"arguments": "select_products_query",
-							"returnValue": "data"
+							"returnValue": "productList"
 						},
 						{
 							"_type": "UMLInteractionUse",
@@ -15816,7 +15816,7 @@
 							},
 							"name": "InteractionUse2",
 							"arguments": "select_sharedCart_query",
-							"returnValue": "data"
+							"returnValue": "joinedCartList"
 						},
 						{
 							"_type": "UMLInteractionUse",
@@ -15826,7 +15826,7 @@
 							},
 							"name": "InteractionUse3",
 							"arguments": "update_sharedCart_query",
-							"returnValue": "data"
+							"returnValue": "result"
 						},
 						{
 							"_type": "UMLCombinedFragment",
@@ -17445,7 +17445,7 @@
 											"top": 301,
 											"width": 498.8291015625,
 											"height": 13,
-											"text": "(select_products_query): data"
+											"text": "(select_sharedCart_query): joinedCartList"
 										},
 										{
 											"_type": "LabelView",
@@ -17509,7 +17509,7 @@
 											"top": 653,
 											"width": 498.8291015625,
 											"height": 13,
-											"text": "(update_sharedCart_query): data"
+											"text": "(update_sharedCart_query): result"
 										},
 										{
 											"_type": "LabelView",
@@ -17907,8 +17907,8 @@
 								"$ref": "AAAAAAGA0lhTjYa8QPc="
 							},
 							"name": "InteractionUse1",
-							"arguments": "select_products_query",
-							"returnValue": "data"
+							"arguments": "select_sharedCart_query",
+							"returnValue": "joinedCartList"
 						},
 						{
 							"_type": "UMLInteractionUse",
@@ -17918,7 +17918,7 @@
 							},
 							"name": "InteractionUse2",
 							"arguments": "update_sharedCart_query",
-							"returnValue": "data"
+							"returnValue": "result"
 						},
 						{
 							"_type": "UMLCombinedFragment",
@@ -18778,7 +18778,7 @@
 											"top": 253,
 											"width": 450.8291015625,
 											"height": 13,
-											"text": "(selct_account_query): data"
+											"text": "(select_account_query): result"
 										},
 										{
 											"_type": "LabelView",
@@ -19369,8 +19369,8 @@
 								"$ref": "AAAAAAGA0mACP4hUubE="
 							},
 							"name": "InteractionUse1",
-							"arguments": "selct_account_query",
-							"returnValue": "data"
+							"arguments": "select_account_query",
+							"returnValue": "result"
 						},
 						{
 							"_type": "UMLCombinedFragment",
@@ -19502,9 +19502,9 @@
 												"$ref": "AAAAAAGA0nbKHIlkIa0="
 											},
 											"font": "Arial;13;0",
-											"left": 103.47998046875,
+											"left": 104.72998046875,
 											"top": 133,
-											"width": 20.590972900390625,
+											"width": 23.40087890625,
 											"height": 13,
 											"text": "Pay"
 										},
@@ -19517,7 +19517,7 @@
 											"font": "Arial;13;1",
 											"left": 85,
 											"top": 133,
-											"width": 13.47998046875,
+											"width": 14.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
@@ -19929,9 +19929,9 @@
 													"font": "Arial;13;1",
 													"left": 845,
 													"top": 47,
-													"width": 106.10986328125,
+													"width": 110.43896484375,
 													"height": 13,
-													"text": "PaymenSystem"
+													"text": "PaymentSystem"
 												},
 												{
 													"_type": "LabelView",
@@ -19964,7 +19964,7 @@
 											"font": "Arial;13;0",
 											"left": 840,
 											"top": 40,
-											"width": 116.10986328125,
+											"width": 120.43896484375,
 											"height": 40,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAGA0ndHSInV8nU="
@@ -19989,7 +19989,7 @@
 												"$ref": "AAAAAAGA0ndHSInS7c0="
 											},
 											"font": "Arial;13;0",
-											"left": 898,
+											"left": 900,
 											"top": 80,
 											"width": 1,
 											"height": 809
@@ -19998,7 +19998,7 @@
 									"font": "Arial;13;0",
 									"left": 840,
 									"top": 40,
-									"width": 116.10986328125,
+									"width": 120.43896484375,
 									"height": 849,
 									"nameCompartment": {
 										"$ref": "AAAAAAGA0ndHSInUm8M="
@@ -20473,12 +20473,12 @@
 												"$ref": "AAAAAAGA0og8pIrZers="
 											},
 											"font": "Arial;13;0",
-											"left": 311,
+											"left": 319,
 											"top": 419,
 											"width": 78.74267578125,
 											"height": 13,
-											"alpha": 1.5957901141677222,
-											"distance": 40.01249804748511,
+											"alpha": 1.5916256424927198,
+											"distance": 48.010415536631214,
 											"hostEdge": {
 												"$ref": "AAAAAAGA0og8pIrasF4="
 											},
@@ -20581,11 +20581,11 @@
 												"$ref": "AAAAAAGA5j8oXb6DH3A="
 											},
 											"font": "Arial;13;0",
-											"left": 289.1969757080078,
+											"left": 289.1708984375,
 											"top": 205,
-											"width": 434.8030242919922,
+											"width": 434.8291015625,
 											"height": 13,
-											"text": "(string select_sharedCart_query): data"
+											"text": "(select_sharedCart_query): ownCartList"
 										},
 										{
 											"_type": "LabelView",
@@ -20596,7 +20596,7 @@
 											"font": "Arial;13;1",
 											"left": 253,
 											"top": 205,
-											"width": 16.196975708007812,
+											"width": 16.1708984375,
 											"height": 13,
 											"text": "ref"
 										}
@@ -20662,7 +20662,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 144.636962890625,
+											"left": 144.72998046875,
 											"top": 557,
 											"width": 1,
 											"height": 13
@@ -20676,7 +20676,7 @@
 											"font": "Arial;13;1",
 											"left": 125,
 											"top": 557,
-											"width": 14.636962890625,
+											"width": 14.72998046875,
 											"height": 13,
 											"text": "alt"
 										},
@@ -20709,7 +20709,7 @@
 															"font": "Arial;13;0",
 															"left": 140,
 															"top": 590,
-															"width": 117.80581665039062,
+															"width": 119.970703125,
 															"height": 13,
 															"text": "[totalPrice >= 19800]"
 														}
@@ -20742,7 +20742,7 @@
 															"font": "Arial;13;0",
 															"left": 140,
 															"top": 736,
-															"width": 111.01982116699219,
+															"width": 112.37890625,
 															"height": 13,
 															"text": "[totalPrice < 19800]"
 														}
@@ -21022,7 +21022,7 @@
 												"$ref": "AAAAAAGBDlthStqXz0U="
 											},
 											"font": "Arial;13;0",
-											"left": 537,
+											"left": 538,
 											"top": 576,
 											"width": 102.77490234375,
 											"height": 13,
@@ -21045,7 +21045,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 588,
+											"left": 589,
 											"top": 561,
 											"height": 13,
 											"alpha": 1.5707963267948966,
@@ -21066,7 +21066,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 588,
+											"left": 589,
 											"top": 596,
 											"height": 13,
 											"alpha": -1.5707963267948966,
@@ -21086,7 +21086,7 @@
 												"$ref": "AAAAAAGBDlthStqXz0U="
 											},
 											"font": "Arial;13;0",
-											"left": 891,
+											"left": 893,
 											"top": 592,
 											"width": 14,
 											"height": 29
@@ -21099,7 +21099,7 @@
 									"tail": {
 										"$ref": "AAAAAAGA0ncmPol8y0I="
 									},
-									"points": "286:592;891:592",
+									"points": "286:592;893:592",
 									"nameLabel": {
 										"$ref": "AAAAAAGBDlthStqZT+8="
 									},
@@ -21357,12 +21357,12 @@
 												"$ref": "AAAAAAGA+OzKB5sfjjs="
 											},
 											"font": "Arial;13;0",
-											"left": 316,
-											"top": 755,
+											"left": 320,
+											"top": 752,
 											"width": 169.7998046875,
 											"height": 13,
-											"alpha": 1.582699524936174,
-											"distance": 84.00595217006948,
+											"alpha": 1.6162186010618351,
+											"distance": 88.09086218218096,
 											"hostEdge": {
 												"$ref": "AAAAAAGA+OzKCJsgDzE="
 											},
@@ -21643,7 +21643,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGA0nbKHIli9JU="
 							},
-							"name": "PaymenSystem",
+							"name": "PaymentSystem",
 							"represent": {
 								"$ref": "AAAAAAGA0ndHSInRBjU="
 							},
@@ -21670,8 +21670,8 @@
 								"$ref": "AAAAAAGA0nbKHIli9JU="
 							},
 							"name": "InteractionUse1",
-							"arguments": "string select_sharedCart_query",
-							"returnValue": "data"
+							"arguments": "select_sharedCart_query",
+							"returnValue": "ownCartList"
 						},
 						{
 							"_type": "UMLCombinedFragment",
@@ -21738,8 +21738,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGA0nbKG4lh4pg="
 					},
-					"name": "Role4",
-					"type": ""
+					"name": "Role4"
 				},
 				{
 					"_type": "UMLAttribute",
