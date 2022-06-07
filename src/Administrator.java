@@ -57,7 +57,7 @@ public class Administrator {
         return dept;
     }
     
-    public void saveCreatedDeptChatRoom(String dept){
+    public void saveCreatedDeptChatRoom(String dept){//입력된 학과에 해당하는 채팅방을 DB에 기록
         String query = new String("UPDATE chatRoom SET isCreated = 1 WHERE name = LIKE '%" + dept + "';");
         db.startQuery(query);
     }
@@ -85,7 +85,7 @@ public class Administrator {
         return Studno;
     }
     
-    public void saveCreatedStudnoChatRoom(String Studno){//create를 보여주려면 chatRoom 스키마를 만들어야 됨(보류)(지금 상태는 체크만 해주고 있음.)
+    public void saveCreatedStudnoChatRoom(String Studno){//입력된 학번에 해당하는 채팅방을 DB에 기록
         String query = new String("UPDATE chatRoom SET isCreated = 1 WHERE studno = LIKE '%" + Studno + "';");
         db.startQuery(query);
     }
