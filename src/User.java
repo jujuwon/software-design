@@ -27,7 +27,7 @@ public class User {
 
     public ArrayList<String> getCreatedChatRoom(){//생성된 채팅방 목록 가져오는 메소드
         ArrayList<String> createdChatRoom = new ArrayList<String>();     
-        String query = "SELECT name FROM chatRoom WHERE isCreated  = 1;";//query문 select chatRoom from chatroom
+        String query = "SELECT name FROM chatRoom WHERE isCreated  = 1;";
         String data = db.startQuery(query);
         StringTokenizer st = new StringTokenizer(data, ",");
         while(st.hasMoreTokens()){
