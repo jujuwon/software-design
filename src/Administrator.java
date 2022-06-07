@@ -6,30 +6,30 @@ public class Administrator {
     String dept;
     ArrayList<String> unCreatedStudnoChatRoomList;
     String Studno;
-    ArrayList<String> reportContent;
+    ArrayList<String> reportContent;//getReportContent가 신고 내역 목록을 반환하므로 String -> ArrayList<String>
     ArrayList<String> CreatedChatRoom;
     ArrayList<String> userList;
     String SelectedChatRoom;
     UserData userData;
-    ArrayList<UserData> userDataList; //새로 만듬 selectUserAndExit()함수에서 파라미터를 아무것도 안받기 떄문에 필드변수 필요함 
+    ArrayList<UserData> userDataList;//selectUserAndExit()는 유저 데이터 리스트에서 강퇴할 사용자를 선택해야 되는데 유저 데이터 리스트를 넘겨줄 파라미터가 존재하지 않으므로 새로 생성
     int inqueryType;
     int sortType;
 
     //-----------------------------------------U1. 채팅방 생성----------------------------------------------------------------------
-    public void createChatRoom(){                                           //U1.Sequence 1
+    public void createChatRoom(){//채팅방 생성                              //U1.Sequence 1 관리자가 채팅방 생성 선택
         Scanner sc = new Scanner(System.in);
         System.out.println("생성할 채팅방의 종류를 선택해주세요.\n0 : 학과 채팅방, 1 : 학과 채팅방");
         System.out.print("채팅방 종류 입력 : ");
-        roomType = sc.nextInt();                                            //U1.Sequence 2
-        if(roomType == 0){
-            unCreatedDeptChatRoomList = getUnCreatedDeptChatRoomList();     //U1.Sequence 3,4
-            dept = selectDept();                                            //U1.Sequence 5,6
-            saveCreatedDeptChatRoom(dept);                                  //U1.Sequence 7
+        roomType = sc.nextInt();                                            //U1.Sequence 2 채팅방 종류 선택 및 반환
+        if(roomType == 0){                                                  //U1.Sequence 학과 채팅방 생성 선택 시
+            unCreatedDeptChatRoomList = getUnCreatedDeptChatRoomList();     //U1.Sequence 3,4 생성되지 않은 학과 채팅방 목록을 요청 및 반환
+            dept = selectDept();                                            //U1.Sequence 5,6 학과 선택 및 반환
+            saveCreatedDeptChatRoom(dept);                                  //U1.Sequence 7 선택한 학과에 해당하는 채팅방을 DB에 저장
         }
-        else if(roomType == 1){
-            unCreatedStudnoChatRoomList = getUnCreatedStudnoChatRoomList(); //U1.Sequence 8,9
-            Studno = selectStudno();                                        //U1.Sequence 10,11
-            saveCreatedStudnoChatRoom(Studno);                              //U1.Sequence 12
+        else if(roomType == 1){                                             //U1.Sequence 학번 채팅방 생성 선택 시
+            unCreatedStudnoChatRoomList = getUnCreatedStudnoChatRoomList(); //U1.Sequence 8,9 생성되지 않은 학번 채팅방 목록을 요청 및 반환
+            Studno = selectStudno();                                        //U1.Sequence 10,11 학번 선택 및 반환
+            saveCreatedStudnoChatRoom(Studno);                              //U1.Sequence 12 선택한 학번에 해당하는 채팅방을 DB에 저장
         }
         sc.close();
     }
@@ -64,7 +64,7 @@ public class Administrator {
 
     public ArrayList<String> getUnCreatedStudnoChatRoomList(){//생성되지 않은 학번 채팅방 목록을 반환하는 메소드
         ArrayList<String> unCreatedStudnoChatRoomList = new ArrayList<>();
-        String query = new String("SELECT name\nFROM chatRoom\nWHERE isCreated = 0 AND name = LIKE 'studno%';");
+        String query = new String("SELECT name FROM chatRoom WHERE isCreated = 0 AND name = LIKE 'studno%';");
         String data = db.startQuery(query);
         StringTokenizer st = new StringTokenizer(data, ",");
         while(st.hasMoreTokens()){
@@ -172,46 +172,47 @@ public class Administrator {
     }
     
      //-----------------------------------U2. 채팅방 관리----------------------------------------------------------------------------
-     public void manageChatRoom(){                              
-        if(reportContent.isEmpty()){
+     public void manageChatRoom(){//채팅방 관리                       
+        if(reportContent.isEmpty()){                            //U2.Sequence 신고내용이 없을 시
             System.out.println("신고내용 없음.");
         }
-        else{
-            CreatedChatRoom=getCreatedChatRoom();               //U2.Sequence 1,2
-            SelectedChatRoom = selectCreatedChatRoom();         //U2.Sequence 3,4
-            userDataList = getUserList(SelectedChatRoom);       //U2.Sequence 5,6
-            saveExitUser(selectUserAndExit());                  //U2.Sequence 7,8
+        else{                                                   //U2.Sequence 신고내용이 있을 시
+            CreatedChatRoom = getCreatedChatRoom();             //U2.Sequence 1,2 채팅방 목록 요청 및 반환
+            SelectedChatRoom = selectCreatedChatRoom();         //U2.Sequence 3,4 채팅방 목록 중에서 하나를 선택
+            userDataList = getUserList(SelectedChatRoom);       //U2.Sequence 5,6 선택된 채팅방의 사용자 목록을 요청 및 반환
+            userData = selectUserAndExit();                     //U2.Sequence 7 사용자 목록에서 강제 퇴장할 사용자를 선택
+            saveExitUser(userData);                             //U2.Sequence 8 선택한 사용자를 강제 퇴장하고 DB에 저장
         }
      }
     
     //-----------------------------------U3. 조회----------------------------------------------------------------------------
-    public void selectInquery(){                                //U3.Sequence 1
+    public void selectInquery(){//조회                          //U3.Sequence 1 관리자가 조회 선택
         ArrayList<String> selectedList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         System.out.println("조회 종류를 선택해주세요.\n0 : 채팅방, 1 : 사용자, 2 : 강제 퇴장된 사용자, 3 : 신고 내용");
         System.out.print("조회 종류 선택 : ");
-        int inqueryType = sc.nextInt();                         //U3.Sequence 2
+        int inqueryType = sc.nextInt();                         //U3.Sequence 2 조회 종류를 선택 및 반환
         switch(inqueryType){
-            case 0 : 
-                selectedList = getCreatedChatRoom();            //U3.Sequence 3,4
+            case 0 :                                            //U3.Sequence 조회 종류가 채팅방 목록 시
+                selectedList = getCreatedChatRoom();            //U3.Sequence 3,4 채팅방 목록 요청 및 반환
                 break;
-            case 1 :
-                selectedList = getUserList();                   //U3.Sequence 5,6
+            case 1 :                                            //U3.Sequence 조회 종류가 사용자 목록 시
+                selectedList = getUserList();                   //U3.Sequence 5,6 사용자 목록 요청 및 반환
                 break;
-            case 2 :
-                selectedList = getExitUser();                   //U3.Sequence 7,8
+            case 2 :                                            //U3.Sequence 조회 종류가 강제 퇴장된 사용자 목록 시
+                selectedList = getExitUser();                   //U3.Sequence 7,8 강제 퇴장된 사용자 목록 요청 및 반환
                 break;
-            case 3 :
-                selectedList = getReportContent();              //U3.Sequence 9,10
+            case 3 :                                            //U3.Sequence 조회 종류가 신고내역 목록 시
+                selectedList = getReportContent();              //U3.Sequence 9,10 신고내역 목록 요청 및 반환
                 reportContent = selectedList;
                 break;
         }
-        sortType = selectSortType();                            //U3.Sequence 11,12
-        if(sortType == 0){
-            sortDictionary(selectedList);                       //U3.Sequence 13
+        sortType = selectSortType();                            //U3.Sequence 11,12 정렬 방식을 선택 및 반환
+        if(sortType == 0){                                      //U3.Sequence 정렬 방식이 사전 순일 시
+            sortDictionary(selectedList);                       //U3.Sequence 13 사전 순으로 리스트 정렬
         }
-        else if(sortType == 1){
-            sortStudno(selectedList);                           //U3.Sequence 14
+        else if(sortType == 1){                                 //U3.Sequence 정렬 방식이 학번 순(오름차순)일 시
+            sortStudno(selectedList);                           //U3.Sequence 14 학번 순(오름차순)으로 리스트 정렬
         }
         System.out.println(selectedList);
         sc.close();

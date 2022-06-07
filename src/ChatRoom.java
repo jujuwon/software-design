@@ -9,16 +9,16 @@ public class ChatRoom {
     DBManage db = new DBManage();
     
     //-----------------------------------------U6. 대화 내용 검색----------------------------------------------------------------------
-    public void SearchChat(){
-        keyword = inputKeyword();                                           //U6.Sequence 1,2
-        chatContent = getChatContent();                                     //U6.Sequence 3,4,5
-        searchResult = searchResult(keyword);                               //U6.Sequence 6,7
-        if(searchResult.isEmpty()){
-            showError();                                                    //U6.Sequence 8
+    public void SearchChat(){//대화 내용 검색
+        keyword = inputKeyword();                                           //U6.Sequence 1,2 검색할 키워드 요청 및 반환
+        chatContent = getChatContent();                                     //U6.Sequence 3,4,5 채팅방의 대화내역을 요청 및 반환
+        searchResult = searchResult(keyword);                               //U6.Sequence 6,7 대화 내역에서 키워드를 탐색 후 반환
+        if(searchResult.isEmpty()){                                         //U6.Sequence 탐색 결과가 없을 시
+            showError();                                                    //U6.Sequence 8 오류 표시
         }
-        else{
-            System.out.println("검색된 결과 개수 : " + searchResult.size()); //U6.Sequence 9
-            //글자 하이라이트                                                //U6.Sequence 10
+        else{                                                               //U6.Sequence 탐색 결과가 존재할 시
+            System.out.println("검색된 결과 개수 : " + searchResult.size()); //U6.Sequence 9 검색된 결과 개수 출력
+            //글자 하이라이트                                                //U6.Sequence 10 검색 결과에 강조 표시
         }
     }
 
@@ -32,7 +32,7 @@ public class ChatRoom {
         return keyword;
     }
 
-    public ArrayList<String> getChatContent(){//채팅방에서 대화내역을 가져오는 메소드
+    public ArrayList<String> getChatContent(){//채팅방에서 대화 내역을 가져오는 메소드
         ArrayList<String> chatContent = new ArrayList<>();
         String query = "SELECT chatContent FROM chat;";
         String data = db.startQuery(query);
@@ -44,7 +44,7 @@ public class ChatRoom {
         return chatContent;
     }
 
-    public ArrayList<String> searchResult(String keyword){//대화내역에서 키워드를 찾는 메소드
+    public ArrayList<String> searchResult(String keyword){//대화 내역에서 키워드를 찾는 메소드
         ArrayList<String> searchResult = new ArrayList<String>();
         Iterator<String> it = chatContent.iterator();        
         while (it.hasNext()) {            
@@ -60,24 +60,34 @@ public class ChatRoom {
         System.out.println("에러 : 신고사유가 없습니다.");
     }
 
+    public String inputReportReason(){//신고사유를 입력하는 함수
+        String reportReason;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("신고 사유를 입력해주세요.");
+        System.out.print("신고 사유 입력 : ");
+        reportReason = sc.nextLine();
+        sc.close();
+        return reportReason;
+    }
+
     //-----------------------------------------U7. 사용자 신고----------------------------------------------------------------------
-    public void userReport(){
+    public void userReport(){//사용자 신고
         userData = new UserData();
         chatContent = getChatContent();
-        String chat = selectChatContent(chatContent);               //U7.Sequence 1
+        String chat = selectChatContent(chatContent);               //U7.Sequence 1 대화 내역에서 채팅 선택
         StringTokenizer st = new StringTokenizer(chat, ":");
         userData.userID = st.nextToken();
-        reportReason = inputReportReason();                         //U7.Sequence 2,3
-        selectReport();                                             //U7.Sequence 4
+        reportReason = inputReportReason();                         //U7.Sequence 2,3 신고 사유 작성 후 반환
+        selectReport();                                             //U7.Sequence 4 신고를 선택
     }
 
     public void selectReport(){//신고당한 사용자 이름 옆에 주의 표시를 하고 신고사유를 DB에 저장하는 함수
-        if(!(reportReason==null)){
-            showWarning(userData);                                  //U7.Sequence 5
-            saveReportContent(reportReason);                        //U7.Sequence 6
+        if(reportReason!=null){                                     //U7.Sequence 신고 사유가 없을 시
+            showWarning(userData);                                  //U7.Sequence 5 신고 당한 사용자의 이름 옆에 주의 표시
+            saveReportContent(reportReason);                        //U7.Sequence 6 신고 사유를 DB에 저장
         }
         else{
-            showError();                                            //U7.Sequence 7
+            showError();                                            //U7.Sequence 7 오류 표시
         }
     }
 
@@ -89,16 +99,6 @@ public class ChatRoom {
         int selectedNum = sc.nextInt();
         sc.close();
         return chatContent.get(selectedNum);
-    }
-
-    public String inputReportReason(){//신고사유를 입력하는 함수
-        String reportReason;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("신고 사유를 입력해주세요.");
-        System.out.print("신고 사유 입력 : ");
-        reportReason = sc.nextLine();
-        sc.close();
-        return reportReason;
     }
 
     public void showWarning(UserData userData){//사용자 이름 옆에 주의 표시를 하는 함수
